@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { LoadingComponent } from './loading/loading.component';
 import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { PageNotFoundComponent } from './pagenotfound/pagenotfound.component';
     PageNotFoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ]
 })
 export class ComponentsModule { }
