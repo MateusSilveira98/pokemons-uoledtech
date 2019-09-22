@@ -1,1 +1,42 @@
-<p>home works!</p>
+<section class="container-fluid">
+  <article class="container">
+    <h1>Pokemons</h1>
+    <header class="row mb-4">
+      <div class="col-6">
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+      <div class="col-6">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Pesquisa" aria-label="Pequisa"
+            aria-describedby="pesquisa">
+          <div class="input-group-append">
+            <span class="input-group-text" id="pesquisa"><i class="fa fa-search"></i></span>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="row">
+      <ng-container *ngFor="let pokemon of pokemons">
+        <div class="col-6 mb-4" key="pokemon.id">
+          <div class="card bg-danger text-warning">
+            <div class="card-body row font-weight-bold">
+              <div class="col-6">
+                <h2 class="pokemon-name" (click)="goToPokemonDetails(pokemon.id)">{{pokemon.name}}</h2>
+              </div>
+              <div class="col-6 text-right">
+                <h1 class="favorite" (click)="setFavorite(pokemon)"><i
+                    [class]="pokemon.favorite ? 'fa fa-star' : 'fa fa-star-o'"></i></h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </article>
+</section>

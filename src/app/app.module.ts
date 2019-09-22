@@ -2,10 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
 import { ComponentsModule } from './_components/components.module';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+
 
 import { LoadingReducer } from './_store/reducers/loading.reducers';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
@@ -18,9 +21,10 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
   ],
   imports: [
     BrowserModule,
-    ComponentsModule,
-    AppRoutingModule,
     FormsModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ComponentsModule,
     StoreModule.forRoot({
       loading: LoadingReducer,
     }),
