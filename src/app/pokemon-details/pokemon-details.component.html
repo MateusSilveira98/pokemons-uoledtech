@@ -1,1 +1,64 @@
-<p>pokemon-details works!</p>
+<section class="container-fluid">
+  <article class="container">
+    <h1>Detalhes</h1>
+    <div class="card mb-3 border-dark">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img [src]="pokemon?.sprites?.front_default" class="card-img" alt="imagem do pokemon">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-6">
+                <h3 class="card-title text-uppercase">{{pokemon?.name}}</h3>
+              </div>
+              <div class="col-6 text-right">
+                <h3 class="card-title text-warning cursor-pointer" (click)="setFavorite(pokemon)">
+                  <i [class]="pokemon.favorite ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                </h3>
+              </div>
+            </div>
+            <ng-container *ngFor="let status of pokemon?.stats">
+              <h6 class="text-uppercase">
+                {{status?.stat?.name}}
+              </h6>
+              <div class="progress mb-4 font-weight-bold text-uppercase">
+                <div class="progress-bar text-white" [ngClass]="Pokemon.getStatusColor(status?.stat?.name)"
+                  role="progressbar" [style.width]="status?.base_stat + '%'" aria-valuenow="100" aria-valuemin="0"
+                  aria-valuemax="100">
+                  {{status?.base_stat + '%'}}
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="row p-5 text-uppercase">
+        <div class="col-3">
+          <h4 class="card-title">Tipo <i class="fa fa-tags text-info" aria-hidden="true"></i></h4>
+          <ng-container *ngFor="let breed of pokemon?.types">
+            <h6>{{breed?.type.name}}</h6>
+          </ng-container>
+        </div>
+        <div class="col-3">
+          <h4 class="card-title">Habilidades <i class="fa fa-bolt text-warning" aria-hidden="true"></i></h4>
+          <ng-container *ngFor="let skill of pokemon?.abilities">
+            <h6>{{skill?.ability.name}}</h6>
+          </ng-container>
+        </div>
+        <div class="col-3">
+          <h4 class="card-title">Peso <i class="fa fa-balance-scale text-primary" aria-hidden="true"></i></h4>
+          <h6>{{pokemon?.weight}}kg</h6>
+        </div>
+        <div class="col-3">
+          <h4 class="card-title">Altura <i class="fa fa-arrows-v text-secondary" aria-hidden="true"></i>
+          </h4>
+          <h6>{{pokemon?.weight}}cm</h6>
+        </div>
+      </div>
+      <div class="card-footer">
+        <a (click)="goToHome()" class="card-link cursor-pointer">Voltar</a>
+      </div>
+    </div>
+  </article>
+</section>
