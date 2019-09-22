@@ -22,7 +22,6 @@ export class PokemonDetailsComponent implements OnInit {
     this.pokemonService.getById(+this.route.params['value'].id).subscribe(response => {
       this.pokemon = response;
       this.pokemon.favorite = this.Pokemon.getFavorite(this.pokemon);
-      console.log(this.pokemon)
     })
   }
   setFavorite(pokemon) {
