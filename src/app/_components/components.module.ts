@@ -11,6 +11,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule
+  ],
+  exports: [
+    LoadingComponent
   ]
 })
 export class ComponentsModule { }

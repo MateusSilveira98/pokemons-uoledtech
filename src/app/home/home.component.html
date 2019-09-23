@@ -12,8 +12,8 @@
       </div>
       <div class="col-6">
         <div class="input-group">
-          <input type="text" class="form-control" (input)="searchPokemon($event.target.value)" placeholder="Pesquisa" aria-label="Pequisa"
-            aria-describedby="pesquisa" >
+          <input type="text" class="form-control" (input)="searchPokemon($event.target.value)" placeholder="Pesquisa"
+            aria-label="Pequisa" aria-describedby="pesquisa">
           <div class="input-group-append">
             <span class="input-group-text bg-danger text-warning" id="pesquisa"><i class="fa fa-search"></i></span>
           </div>
@@ -21,7 +21,7 @@
       </div>
     </header>
     <div class="row">
-      <ng-container *ngFor="let pokemon of filteredPokemons">
+      <ng-container *ngFor="let pokemon of paginate">
         <div class="col-xs-6 col-sm-6 col-md-6 mb-4">
           <div class="card bg-danger text-warning animated fadeInDown faster">
             <div class="card-body row font-weight-bold">
@@ -36,6 +36,27 @@
             </div>
           </div>
         </div>
+      </ng-container>
+    </div>
+    <div class="row">
+      <ng-container *ngIf="filteredPokemons.length > 6">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li class="page-item cursor-pointer" (click)="page = page == 0 ? page : page - 1; changePage(page)">
+              <a class="page-link">Anterior</a>
+            </li>
+            <ng-container *ngFor="let p of pagination; let i = index">
+              <li class="page-item cursor-pointer" [class]="page == i ? 'active' : ''"
+                (click)="page = i; changePage(page)">
+                <a class="page-link " >{{i + 1}}</a>
+              </li>
+            </ng-container>
+            <li class="page-item cursor-pointer"
+              (click)="page = page == pagination.length ? page : page + 1; changePage(page)">
+              <a class="page-link">Próximo</a>
+            </li>
+          </ul>
+        </nav>
       </ng-container>
     </div>
   </article>
