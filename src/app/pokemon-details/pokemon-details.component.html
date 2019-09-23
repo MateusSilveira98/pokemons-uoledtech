@@ -1,5 +1,8 @@
 <section class="container-fluid">
   <article class="container">
+    <p class="m-0">
+      <a (click)="goToHome()" class="card-link cursor-pointer"><i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar</a>
+    </p>
     <h1>Detalhes</h1>
     <div class="card mb-3 border-dark animated fadeInDown faster">
       <div class="row no-gutters">
@@ -13,8 +16,8 @@
                 <h3 class="card-title text-uppercase">{{pokemon?.name}}</h3>
               </div>
               <div class="col-6 text-right">
-                <h3 class="card-title text-warning cursor-pointer" (click)="setFavorite(pokemon)">
-                  <i [class]="pokemon.favorite ? 'fa fa-star' : 'fa fa-star-o'"></i>
+                <h3 class="card-title text-warning" (click)="setFavorite(pokemon)">
+                  <i [class]="pokemon.favorite ? 'cursor-pointer fa fa-star' : 'cursor-pointer fa fa-star-o'"></i>
                 </h3>
               </div>
             </div>
@@ -55,9 +58,6 @@
           </h4>
           <h6>{{pokemon?.weight}}cm</h6>
         </div>
-      </div>
-      <div class="card-footer">
-        <a (click)="goToHome()" class="card-link cursor-pointer">Voltar</a>
       </div>
     </div>
   </article>

@@ -29,7 +29,9 @@ export class HomeComponent implements OnInit {
         return item
       });
     })
-    this.store.dispatch(new StopLoadingAction());
+    setTimeout(() => {
+      this.store.dispatch(new StopLoadingAction());
+    }, 1000)
   }
   searchPokemon(search) {
     search = search.toLowerCase();
