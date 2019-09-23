@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
     })
     setTimeout(() => {
       this.store.dispatch(new StopLoadingAction());
+      // Timeout para demonstar que o controle de state está funcionando
     }, 1000)
   }
   searchPokemon(search) {
