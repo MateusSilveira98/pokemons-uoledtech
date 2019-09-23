@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 import { ComponentsModule } from './_components/components.module';
 import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.compo
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxPaginationModule,
     ComponentsModule,
     StoreModule.forRoot({
       loading: LoadingReducer,
